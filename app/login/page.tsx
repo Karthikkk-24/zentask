@@ -40,7 +40,7 @@ export default function LoginPage() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="sr-only">
+                            <label htmlFor="password" className="sr-only mt-2">
                                 Password
                             </label>
                             <input
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 </form>
                 <div className="text-center">
                     <Link
-                        href="/login/register"
+                        href="/register"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
                         Don't have an account? Register here

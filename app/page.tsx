@@ -11,13 +11,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <h2 className="text-xl font-semibold mb-2">Add New Task</h2>
-                    {/* <TaskInput
+                    <TaskInput
                         onAddTask={(task) => console.log('New task:', task)}
-                    /> */}
+                    />
                 </div>
                 <div>
                     <h2 className="text-xl font-semibold mb-2">Your Tasks</h2>
-                    {/* <TaskList tasks={[]} /> */}
+                    <TaskList tasks={[]} />
                 </div>
             </div>
         </div>
