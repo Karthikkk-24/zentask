@@ -1,5 +1,5 @@
-// import TaskInput from '@/components/TaskInput';
-// import TaskList from '@/components/TaskList';
+import TaskInput from '@/components/TaskInput';
+import TaskList from '@/components/TaskList';
 import React from 'react';
 
 export default function Home() {
