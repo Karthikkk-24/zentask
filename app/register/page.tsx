@@ -4,91 +4,93 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function RegisterPage() {
-    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Registration attempt with:', { name, email, password });
+        console.log('Registration attempt with:', {
+            username,
+            email,
+            password,
+        });
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
-                <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                        Create your account
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="bg-white shadow-xl rounded-lg flex max-w-4xl w-full">
+                <div className="w-1/2 p-8">
+                    <h2 className="text-2xl text-blue-500 font-extrabold mb-6">
+                        Create Account
                     </h2>
-                </div>
-                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <input type="hidden" name="remember" value="true" />
-                    <div className="rounded-md shadow-sm -space-y-px">
-                        <div>
-                            <label htmlFor="name" className="sr-only">
-                                Full Name
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label
+                                htmlFor="username"
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                            >
+                                USERNAME
                             </label>
                             <input
-                                id="name"
-                                name="name"
                                 type="text"
-                                autoComplete="name"
-                                required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="Full Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                id="username"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
-                                Email address
+                        <div className="mb-4">
+                            <label
+                                htmlFor="email"
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                            >
+                                EMAIL
                             </label>
                             <input
-                                id="email-address"
-                                name="email"
                                 type="email"
-                                autoComplete="email"
-                                required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="Email address"
+                                id="email"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <label htmlFor="password" className="sr-only">
-                                Password
+                        <div className="mb-6">
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-medium text-gray-700 mb-1"
+                            >
+                                PASSWORD
                             </label>
                             <input
-                                id="password"
-                                name="password"
                                 type="password"
-                                autoComplete="new-password"
-                                required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                id="password"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                    </div>
-
-                    <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
                         >
-                            Register
+                            Sign Up
                         </button>
-                    </div>
-                </form>
-                <div className="text-center">
+                    </form>
+                </div>
+                <div className="w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center items-center rounded-r-lg">
+                    <h2 className="text-3xl font-bold mb-4">
+                        Welcome to register
+                    </h2>
+                    <p className="mb-4">Already have an account?</p>
                     <Link
                         href="/login"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="px-6 py-2 border border-white rounded-full hover:bg-white hover:text-blue-500 transition duration-300"
                     >
-                        Already have an account? Sign in here
+                        Sign In
                     </Link>
                 </div>
             </div>
