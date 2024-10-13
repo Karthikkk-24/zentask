@@ -24,7 +24,7 @@ export default function LoginPage() {
                                 htmlFor="username"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                USERNAME
+                                Username
                             </label>
                             <input
                                 type="text"
@@ -40,7 +40,7 @@ export default function LoginPage() {
                                 htmlFor="password"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                PASSWORD
+                                Password
                             </label>
                             <input
                                 type="password"

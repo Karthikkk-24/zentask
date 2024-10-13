@@ -1,5 +1,6 @@
 'use client';
 
+import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -8,8 +9,17 @@ export default function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const response = await axios.post('/api/register', {
+            username,
+            email,
+            password,
+        });
+
+        console.log("Response: ", response.data);
+        
         console.log('Registration attempt with:', {
             username,
             email,
@@ -30,7 +40,7 @@ export default function RegisterPage() {
                                 htmlFor="username"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                USERNAME
+                                Username
                             </label>
                             <input
                                 type="text"
@@ -46,7 +56,7 @@ export default function RegisterPage() {
                                 htmlFor="email"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                EMAIL
+                                Email
                             </label>
                             <input
                                 type="email"
@@ -62,7 +72,7 @@ export default function RegisterPage() {
                                 htmlFor="password"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                PASSWORD
+                                Password
                             </label>
                             <input
                                 type="password"
