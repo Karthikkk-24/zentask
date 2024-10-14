@@ -1,17 +1,23 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function POST(request) {
-    try {
-        const {
-            username, email, password
-        } = request.body;
+    console.log('Received request:', request);
 
+    try {
+        const body = await request.json();
+        console.log('Received body:', body);
+        
         
 
+        return NextResponse.json(
+            { message: 'User registered successfully' },
+            { status: 201 }
+        );
     } catch (error) {
-        console.log("Error: ", error);
-        return NextResponse.json({
-            error: 'Registration Failed'
-        });
+        console.error('Error parsing request body:', error);
+        return NextResponse.json(
+            { error: 'Invalid request body' },
+            { status: 400 }
+        );
     }
 }

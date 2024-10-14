@@ -12,19 +12,34 @@ export default function RegisterPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const response = await axios.post('/api/register', {
-            username,
-            email,
-            password,
-        });
+        console.log('Client-side values:', { username, email, password });
 
-        console.log("Response: ", response.data);
-        
-        console.log('Registration attempt with:', {
-            username,
-            email,
-            password,
-        });
+        try {
+            const response = await axios.post(
+                '/api/register',
+                {
+                    username,
+                    email,
+                    password,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.error(
+                    'Axios error:',
+                    error.response?.data || error.message
+                );
+            } else {
+                console.error('Unexpected error:', error);
+            }
+        }
     };
 
     return (
